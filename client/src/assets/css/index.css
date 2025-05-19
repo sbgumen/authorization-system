@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 自定义全局样式 */
+:root {
+  --color-primary: theme('colors.blue.500');
+  --color-secondary: theme('colors.indigo.600');
+  --color-background: theme('colors.slate.900');
+  --color-card: theme('colors.slate.800');
+}
+
+html, body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  scroll-behavior: smooth;
+  @apply bg-slate-900 text-gray-100;
+}
+
+/* 定制滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: theme('colors.slate.800');
+}
+
+::-webkit-scrollbar-thumb {
+  background: theme('colors.slate.600');
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.slate.500');
+}
+
+/* 悬浮效果 */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 渐变文本 */
+.gradient-text {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500;
+}
+
+/* 渐变背景 */
+.gradient-bg {
+  @apply bg-gradient-to-r from-blue-600 to-indigo-800;
+}
+
+/* 玻璃态效果 */
+.glassmorphism {
+  @apply bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20 shadow-xl;
+}
+
+/* 输入框样式 */
+.input-primary {
+  @apply bg-slate-700 rounded-lg py-3 px-4 text-white border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+/* 数据表格样式 */
+.data-table {
+  @apply w-full min-w-full rounded-lg overflow-hidden;
+}
+
+.data-table thead th {
+  @apply bg-slate-700 text-gray-300 text-left py-3 px-4 font-medium;
+}
+
+.data-table tbody tr {
+  @apply hover:bg-slate-700 border-b border-slate-700;
+}
+
+.data-table tbody td {
+  @apply py-3 px-4;
+}
+
+/* 卡片样式 */
+.card {
+  @apply bg-slate-800 rounded-xl shadow-lg p-6;
+}
+
+/* 动画效果 */
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+  }
+}
+
+/* 科技风格元素 */
+.tech-border {
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border: 2px solid transparent;
+  border-radius: inherit;
+  background: linear-gradient(45deg, rgba(59, 130, 246, 0.6), rgba(79, 70, 229, 0.6)) border-box;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: subtract;
+  pointer-events: none;
+  animation: border-glow 2s infinite alternate;
+}
+
+@keyframes border-glow {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+.text-blue-400{
+    overflow-y: auto;
+}
+
+/* 霓虹效果 */
+.neon-text {
+  text-shadow: 0 0 5px rgba(59, 130, 246, 0.8), 0 0 10px rgba(59, 130, 246, 0.6), 0 0 15px rgba(59, 130, 246, 0.4);
+}
+
+.neon-border {
+  box-shadow: 0 0 5px rgba(59, 130, 246, 0.8), 0 0 10px rgba(59, 130, 246, 0.4);
+}
+
+@media (max-width: 760px){
+.sqtitle{
+    font-size: 15px;
+}
+}
+/* 响应式调整 */
+@media (max-width: 640px) {
+  .card {
+    @apply p-4;
+  }
+}
