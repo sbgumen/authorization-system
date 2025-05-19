@@ -92,6 +92,8 @@ CORS_ORIGIN=http://localhost:3000
 ```
 ```bash
 客户端端口可以在/client/.env中修改PORT
+
+修改服务的端口时需要同时修改/client/package.json中的proxy的端口
 ```
 
 
